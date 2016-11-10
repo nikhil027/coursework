@@ -1,0 +1,27 @@
+<h2>Listing Instructors</h2>
+
+<h3><%=link_to "Add Instructor", new_instructor_path %></h3>
+
+<table border="1">
+	<thead>
+		<tr>
+			<th>Sl No</th>
+			<th>Name</th>
+			<th>Email</th>
+			<th>Bio Data</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @instructors.each_with_index do |instructor,index|%>
+		<tr>
+			<td><%=index + 1%></td>
+			<td><%=instructor.name%></td>
+			<td><%=instructor.email%></td>
+			<td><%=instructor.biodata%></td>
+			<td><%=link_to "Show", instructor_path(instructor.id)%></td>
+			<td><%=link_to "Edit", edit_instructor_path(instructor.id)%></td>
+			<td><%=link_to "Destroy", instructor_path(instructor.id), method: :delete, data: {confirm: "Are you sure ???"}%></td>
+		</tr>
+		<%end%>
+	</tbody>
+</table>

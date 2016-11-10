@@ -1,0 +1,27 @@
+<h2>Listing Courses</h2>
+
+<h3><%=link_to "Add Course", new_course_path%></h3><br>	
+
+<table border="1">
+	<thead>
+		<tr>
+			<th>Sl No</th>
+			<th>Name</th>
+			<th>Description</th>
+			<th>Instructor</th>
+		</tr>
+	</thead>
+	<tbody>
+		<%@courses.each_with_index do |course,index|%>
+		<tr>
+			<td><%=index + 1%></td>
+			<td><%=course.name%></td>
+			<td><%=course.description%></td>
+			<td><%=course.instructor.name%></td>
+			<td><%=link_to "Show", course_path(course.id)%></td>
+			<td><%=link_to "Edit", edit_course_path(course.id)%></td>
+			<td><%=link_to "Destroy", course_path(course.id), method: :delete, data: {confirm: "Are you sure ???"}%></td>
+		</tr>
+		<%end%>
+	</tbody>
+</table>

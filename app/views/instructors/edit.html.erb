@@ -1,0 +1,16 @@
+<h2>Edit Information of the instructor</h2>
+
+<%= form_for @instructor do |f|%>
+
+	<%= f.label :name %><br/>
+	<%= f.text_field :name %><br/>
+
+	<%= f.label :email %><br/>
+	<%= f.email_field :email %><br/>
+
+	<%= f.label :biodata %><br/>
+	<%= f.text_area :biodata %><br/><br>
+
+	<%=f.submit %>
+
+<%end%>	

@@ -1,0 +1,18 @@
+<h2>Edit Course</h2>
+
+<%= form_for @course do |f| %>
+
+	<%= f.label :name%><br>
+	<%= f.text_field :name%><br>
+
+	<%= f.label :description%><br>
+	<%= f.text_area :description%><br>
+
+	<%=f.label :instructor_id%><br>
+	<%=f.collection_select :instructor_id, Instructor.all, :id, :name, prompt: "Select Instructor" %><br>
+
+	<%=f.submit "Update Course"%>
+
+<%end%> 
+
+

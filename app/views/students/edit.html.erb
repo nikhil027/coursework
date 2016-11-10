@@ -1,0 +1,19 @@
+<h2>Edit Student Details</h2>
+
+<%= form_for @student do |f|%>
+
+	<%=f.label :name%><br>
+	<%=f.text_field :name%><br><br>
+
+	<%=f.label :email%><br>
+	<%=f.email_field :email%><br>
+
+	<%=f.label :major%><br>
+	<%=f.text_field :major%><br>
+
+	<%=f.label :course_id%><br>
+	<%=f.collection_check_boxes :course_ids, Course.all, :id, :name%><br> 
+
+	<%=f.submit "Update Student"%>
+
+<%end%>

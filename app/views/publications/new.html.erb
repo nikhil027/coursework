@@ -1,0 +1,16 @@
+<h2>Add New Publication</h2>
+
+<%= form_for @publication do |f| %>
+
+	<%= f.label :title%><br>
+	<%= f.text_field :title%><br>
+
+	<%= f.label :link%><br>
+	<%= f.url_field :link%><br>
+
+	<%=f.label :instructor_id%><br>
+	<%=f.collection_select :instructor_id, Instructor.all, :id, :name, prompt: "Select Instructor" %><br>
+
+	<%= f.submit "Add Publication"%>
+
+<%end%>

@@ -1,0 +1,13 @@
+<b>Name: </b><%=@student.name%><br><br>
+<b>Email: </b><%=@student.email%><br><br>
+<b>Major: </b><%=@student.major%><br><br>
+
+<h3>Courses Taken By <%=@student.name%></h3>
+<ol>
+	<%@student.courses.each do |course|%>
+		<li><%=link_to course.name, course_path(course.id)%> by <%=link_to course.instructor.name, instructor_path(course.instructor.id)%></li>
+	<%end%>
+</ol>
+
+<%=link_to "Edit", edit_student_path(@student.id) %>  ||
+<%=link_to "Delete", student_path(@student.id),method: :delete, data: {confirm: "Are you Sure???"}%>

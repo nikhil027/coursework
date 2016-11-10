@@ -1,0 +1,19 @@
+<b>Name: </b><%=@instructor.name%><br>
+<b>Email: </b><%=@instructor.email%><br>
+<b>Biodata: </b><%=@instructor.biodata%><br>
+
+<h2>Courses offered by <%=@instructor.name.upcase%></h2>
+<ol>
+	<%@instructor.courses.each do |course|%>
+		<li><%=link_to course.name, course_path(course.id)%></li>
+	<%end%>	
+</ol>
+
+
+<h2>Publications by <%=@instructor.name.upcase%></h2>
+<%Publication.where('instructor_id = ?',@instructor.id).each do |publication|%>
+<%#Publication.instructor.each do |publication|%>
+<ol>
+	<li><%=link_to publication.title, "#{publication.link}", target: "_blank"%></li>
+</ol>
+<%end%>	
